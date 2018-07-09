@@ -7,15 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E21150020F36B1E00A07C1A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2114FF20F36B1E00A07C1A /* ShareViewController.swift */; };
+		0E32863620F2786F007FBB25 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E32863520F2786F007FBB25 /* DetailViewController.swift */; };
 		0EE756F120EF6DC2005FCBA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE756F020EF6DC2005FCBA2 /* AppDelegate.swift */; };
 		0EE756F320EF6DC2005FCBA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE756F220EF6DC2005FCBA2 /* ViewController.swift */; };
 		0EE756F620EF6DC2005FCBA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE756F420EF6DC2005FCBA2 /* Main.storyboard */; };
 		0EE756F920EF6DC2005FCBA2 /* Exercise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0EE756F720EF6DC2005FCBA2 /* Exercise.xcdatamodeld */; };
 		0EE756FB20EF6DC4005FCBA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EE756FA20EF6DC4005FCBA2 /* Assets.xcassets */; };
 		0EE756FE20EF6DC4005FCBA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE756FC20EF6DC4005FCBA2 /* LaunchScreen.storyboard */; };
+		0EE7570620EF7059005FCBA2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE7570520EF7059005FCBA2 /* Reachability.swift */; };
+		0EE7570A20EF75AF005FCBA2 /* InternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE7570920EF75AF005FCBA2 /* InternetViewController.swift */; };
+		0EE7570C20EF9B91005FCBA2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE7570B20EF9B91005FCBA2 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E2114FF20F36B1E00A07C1A /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		0E32863520F2786F007FBB25 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0EE756ED20EF6DC2005FCBA2 /* Exercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE756F020EF6DC2005FCBA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EE756F220EF6DC2005FCBA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +31,9 @@
 		0EE756FA20EF6DC4005FCBA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EE756FD20EF6DC4005FCBA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EE756FF20EF6DC4005FCBA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EE7570520EF7059005FCBA2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		0EE7570920EF75AF005FCBA2 /* InternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetViewController.swift; sourceTree = "<group>"; };
+		0EE7570B20EF9B91005FCBA2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,11 @@
 			children = (
 				0EE756F020EF6DC2005FCBA2 /* AppDelegate.swift */,
 				0EE756F220EF6DC2005FCBA2 /* ViewController.swift */,
+				0EE7570920EF75AF005FCBA2 /* InternetViewController.swift */,
+				0EE7570B20EF9B91005FCBA2 /* ListViewController.swift */,
+				0E32863520F2786F007FBB25 /* DetailViewController.swift */,
+				0E2114FF20F36B1E00A07C1A /* ShareViewController.swift */,
+				0EE7570520EF7059005FCBA2 /* Reachability.swift */,
 				0EE756F420EF6DC2005FCBA2 /* Main.storyboard */,
 				0EE756FA20EF6DC4005FCBA2 /* Assets.xcassets */,
 				0EE756FC20EF6DC4005FCBA2 /* LaunchScreen.storyboard */,
@@ -140,7 +155,12 @@
 			files = (
 				0EE756F320EF6DC2005FCBA2 /* ViewController.swift in Sources */,
 				0EE756F920EF6DC2005FCBA2 /* Exercise.xcdatamodeld in Sources */,
+				0EE7570C20EF9B91005FCBA2 /* ListViewController.swift in Sources */,
+				0EE7570620EF7059005FCBA2 /* Reachability.swift in Sources */,
 				0EE756F120EF6DC2005FCBA2 /* AppDelegate.swift in Sources */,
+				0EE7570A20EF75AF005FCBA2 /* InternetViewController.swift in Sources */,
+				0E21150020F36B1E00A07C1A /* ShareViewController.swift in Sources */,
+				0E32863620F2786F007FBB25 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

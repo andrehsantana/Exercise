@@ -13,10 +13,16 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navController: UINavigationController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let accessoryView = KeyboardAccessoryToolbar()
+        UITextField.appearance().inputAccessoryView = accessoryView
+        UITextView.appearance().inputAccessoryView = accessoryView
+                     
         return true
     }
 
@@ -87,6 +93,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    class KeyboardAccessoryToolbar: UIToolbar {
+        convenience init() {
+            self.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+            self.barStyle = .default
+            self.isTranslucent = false
+            self.tintColor = UIColor.black
+            
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.done))
+            self.items = [doneButton]
+            
+            self.isUserInteractionEnabled = true
+            self.sizeToFit()
+        }
+        
+        @objc func done() {
+            // Tell the current first responder (the current text input) to resign.
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+        
+     
     }
 
 }
