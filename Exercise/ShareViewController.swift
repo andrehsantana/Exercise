@@ -17,6 +17,7 @@ class ShareViewController: UIViewController, MFMailComposeViewControllerDelegate
     
     @IBOutlet weak var emailTextField: UITextField!
     
+     //MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,66 +26,42 @@ class ShareViewController: UIViewController, MFMailComposeViewControllerDelegate
         self .setupUI()
         
     }
-
-    func sendEmail() {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients([emailTextField.text!])
-            mail.setMessageBody(textView.text, isHTML: false)
-            
-            present(mail, animated: true)
-        } else {
-            
-            // create the alert
-            let alert = UIAlertController(title: "Error", message: "Some error occurred", preferredStyle: UIAlertControllerStyle.alert)
-            
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.navigationController? .popToRootViewController(animated: true)
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-            
-        }
-    }
     
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-    }
-    
-    
-    @IBAction func sendButton(_ sender: Any) {
-        
-//        self .sendEmail()
-        
-        self .email()
-        
-    }
-    
+    //MARK: - UI updates
     func setupUI() {
         
         textView.layer.borderColor = UIColor.gray.cgColor
         textView.layer.borderWidth = 2.0
         textView.text = questionShareInfo as String
         
-        
     }
-    
-    func email() {
+
+    //MARK: - Methods
+    func sendEmail() {
+        
+        if (emailTextField.text == nil) { emailTextField.text = "" }
         
         //declare parameter as a dictionary which contains string as key and value combination.
-        let parameters = ["email": emailTextField.text, "message": textView.text]
+        let parameters = ["email": emailTextField.text!, "message": textView.text!]
         
         //create the url with NSURL
-        let url = URL(string: "https://blissrecruitment:/share?destination_email={email}&content_url={message}")
+        let urlString = "http://blissrecruitment:/share?destination_email=" + parameters["email"]! + "&content_url=" + parameters["message"]!
+        
+        if let encoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+            let myURL = URL(string: encoded) {
+            print(myURL)
+        }
+        
+        guard let url = NSURL(string: urlString) else {
+            print("Error")
+            return
+        }
         
         //create the session object
         let session = URLSession.shared
         
         //now create the NSMutableRequest object using the url object
-        
-        let request = NSMutableURLRequest(url: url! as URL)
+        var request = URLRequest(url: url as URL)
         request.httpMethod = "POST" //set http method as POST
         
         do {
@@ -113,7 +90,6 @@ class ShareViewController: UIViewController, MFMailComposeViewControllerDelegate
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject] {
                     print(json)
-                    // handle json...
                 }
                 
             } catch let error {
@@ -124,5 +100,41 @@ class ShareViewController: UIViewController, MFMailComposeViewControllerDelegate
         
         task.resume()
     }
-
+    
+    //MARK: - Method to create a Mail sender
+//    func sendEmail() {
+//        if MFMailComposeViewController.canSendMail() {
+//            let mail = MFMailComposeViewController()
+//            mail.mailComposeDelegate = self
+//            mail.setToRecipients([emailTextField.text!])
+//            mail.setMessageBody(textView.text, isHTML: false)
+//
+//            present(mail, animated: true)
+//        } else {
+//
+//            // create the alert
+//            let alert = UIAlertController(title: "Error", message: "Some error occurred", preferredStyle: UIAlertControllerStyle.alert)
+//
+//            // add an action (button)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//            self.navigationController? .popToRootViewController(animated: true)
+//
+//            // show the alert
+//            self.present(alert, animated: true, completion: nil)
+//
+//        }
+//    }
+    
+//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        controller.dismiss(animated: true)
+//    }
+//
+    
+     //MARK: - Button Actions
+    @IBAction func sendButton(_ sender: Any) {
+        
+        
+        self .sendEmail()
+        
+    }
 }

@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
     
+    //MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,31 +22,10 @@ class DetailViewController: UIViewController {
         
         
     }
-    
-    @IBAction func backButton(_ sender: Any) {
-        
-        self.dismiss(animated: true, completion: nil)
-        
-    }
-    
-    @IBAction func voteButton(_ sender: Any) {
-        
-        self .voteRequest(params: questionInformation as String)
-        
-    }
-    
-    @IBAction func shareButton(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier :"ShareViewController") as! ShareViewController
-        viewController.questionShareInfo = questionInformation as NSString
-        self.present(viewController, animated: true)
-        
-    }
-    
+    //MARK: - Methods
     func voteRequest(params: String) {
         
-        let baseURL = "https://blissrecruitment://questions/" //Remember to put ATS exception if the URL is not https
+        let baseURL = "https://blissrecruitment:/questions/" //Remember to put ATS exception if the URL is not https
         
         let queryURL = baseURL + params
         
@@ -71,7 +51,7 @@ class DetailViewController: UIViewController {
                 
                 // add an action (button)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-    
+                
                 // show the alert
                 self.present(alert, animated: true, completion: nil)
                 print(error!.localizedDescription)
@@ -87,5 +67,27 @@ class DetailViewController: UIViewController {
         
     }
     
+    
+    //MARK: - Button Actions
+    @IBAction func backButton(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func voteButton(_ sender: Any) {
+        
+        self .voteRequest(params: questionInformation as String)
+        
+    }
+    
+    @IBAction func shareButton(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier :"ShareViewController") as! ShareViewController
+        viewController.questionShareInfo = questionInformation as NSString
+        self.present(viewController, animated: true)
+        
+    }
 
 }

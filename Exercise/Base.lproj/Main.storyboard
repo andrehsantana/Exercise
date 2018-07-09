@@ -57,11 +57,7 @@
                                 <rect key="frame" x="178" y="422.5" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6o-uX-NGH">
-                                <rect key="frame" x="156" y="587" width="63" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Bot-ke-EAf"/>
-                                    <constraint firstAttribute="width" constant="63" id="oBv-rG-lfa"/>
-                                </constraints>
+                                <rect key="frame" x="56.5" y="550.5" width="262.5" height="66.5"/>
                                 <state key="normal" title="Try again"/>
                                 <connections>
                                     <action selector="tryAgain:" destination="YGt-bi-7yh" eventType="touchUpInside" id="cep-AR-Cs6"/>
@@ -70,12 +66,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="h6o-uX-NGH" firstAttribute="width" secondItem="MXd-38-Gyc" secondAttribute="width" multiplier="0.7" id="Ivz-Wl-6mr"/>
                             <constraint firstItem="naa-UG-w5H" firstAttribute="centerX" secondItem="6LK-dm-yOG" secondAttribute="centerX" id="SXQ-i5-gNK"/>
                             <constraint firstItem="BM9-50-eTn" firstAttribute="centerX" secondItem="6LK-dm-yOG" secondAttribute="centerX" id="VBe-r3-c8q"/>
                             <constraint firstItem="BM9-50-eTn" firstAttribute="top" secondItem="6LK-dm-yOG" secondAttribute="top" constant="249" id="hj0-Ep-Ni4"/>
                             <constraint firstItem="BM9-50-eTn" firstAttribute="height" secondItem="MXd-38-Gyc" secondAttribute="height" multiplier="0.2" id="k0a-Wu-OQb"/>
                             <constraint firstItem="BM9-50-eTn" firstAttribute="width" secondItem="MXd-38-Gyc" secondAttribute="width" multiplier="0.8" id="mxn-nC-zLc"/>
                             <constraint firstItem="naa-UG-w5H" firstAttribute="top" secondItem="BM9-50-eTn" secondAttribute="bottom" constant="20" id="ueT-Uz-0xQ"/>
+                            <constraint firstItem="h6o-uX-NGH" firstAttribute="height" secondItem="MXd-38-Gyc" secondAttribute="height" multiplier="0.1" id="yGM-Q6-4eC"/>
                             <constraint firstItem="6LK-dm-yOG" firstAttribute="bottom" secondItem="h6o-uX-NGH" secondAttribute="bottom" constant="50" id="yQk-tp-HOy"/>
                             <constraint firstItem="h6o-uX-NGH" firstAttribute="centerX" secondItem="6LK-dm-yOG" secondAttribute="centerX" id="zs6-qB-jRd"/>
                         </constraints>

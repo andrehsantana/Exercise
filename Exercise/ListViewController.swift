@@ -18,6 +18,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     let cellReuseIdentifier = "myCell"
     
+    //MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,6 +67,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    //MARK: - Methods
     func getRequest(params: String) {
         
         let baseURL = "https://blissrecruitment://questions?question_filter="
@@ -98,6 +100,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    //MARK: - TableView delegates
     func numberOfSectionsInTableView(tableView: UITableView) -> Int{
         
         return 1;
@@ -130,11 +133,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     }
     
+    //MARK: - Search Bar delegates
     func searchBarSearchButtonClicked( _ searchBar: UISearchBar)
     {
         self .getRequest(params: searchBar.text!)
     }
     
+    //MARK: - Button Actions
     @IBAction func recordsButton(_ sender: Any) {
         
         recordsValue = recordsValue + 10

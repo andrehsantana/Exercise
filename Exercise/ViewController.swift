@@ -15,24 +15,24 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    
+    //MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
         self .getRequestURL()
         
-//        self .checkInternetConnection()
-        
-//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.checkInternetConnection), userInfo: nil, repeats: true)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         activityIndicator.startAnimating()
         
         
     }
     
+    //MARK: - Methods
     func getRequestURL() {
         
         let url = URL(string: "https://private-bbbe9-blissrecruitmentapi.apiary-mock.com/health")
@@ -70,22 +70,6 @@ class ViewController: UIViewController {
         task.resume()
         
     }
-    
-//        @objc func checkInternetConnection () {
-//
-//            seconds=seconds-1
-//
-//            if (Reachability.isConnectedToNetwork()) {
-//                print("Internet Connection Available")
-//            } else {
-//                if(seconds == 0) {
-//                    print("Internet Connection not Available")
-//                    self.performSegue(withIdentifier: "noInternetConnection", sender: self)
-//                }
-//
-//            }
-//
-//        }
     
 
 }

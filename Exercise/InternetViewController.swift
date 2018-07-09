@@ -14,6 +14,7 @@ class InternetViewController: UIViewController {
     
     @IBOutlet weak var tryButton: UIButton!
     
+    //MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +26,8 @@ class InternetViewController: UIViewController {
  
         
     }
-
+    
+    //MARK: - Methods
     @objc func checkInternetConnection () {
 
         if (Reachability.isConnectedToNetwork()) {
@@ -42,6 +44,7 @@ class InternetViewController: UIViewController {
 
     }
     
+    //MARK: - Button Actions
     @IBAction func tryAgain(_ sender: Any) {
         
         activityIndicator.isHidden = false
@@ -53,44 +56,5 @@ class InternetViewController: UIViewController {
         
         
     }
-    
-    @objc func getRequestURL() {
-        
-        let url = URL(string: "https://private-bbbe9-blissrecruitmentapi.apiary-mock.com/health")
-        
-        let task = URLSession.shared.dataTask(with: url! as URL) { data, response, error in
-            
-            guard let data = data, error == nil else { return }
-            
-            do {
-                //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    print(json)
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let viewController = storyboard.instantiateViewController(withIdentifier :"ListViewController") as! ListViewController
-                    self.present(viewController, animated: true)
-                    
-                }
-            } catch let error {
-                // create the alert
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                
-                // add an action (button)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.navigationController? .popToRootViewController(animated: true)
-                
-                // show the alert
-                self.present(alert, animated: true, completion: nil)
-                print(error.localizedDescription)
-            }
-            
-            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue) as Any)
-        }
-        
-        task.resume()
-        
-    }
-    
-    
 
 }
